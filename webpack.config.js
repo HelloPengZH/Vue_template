@@ -42,7 +42,7 @@ module.exports={
         new htmlWP({
             title: '首页',  //生成的页面标题
             filename: 'index.html', //webpack-dev-server在内存中生成的文件名称，自动将build注入到这个页面底部，才能实现自动刷新功能
-            template: 'index1.html' //根据template.html这个模板来生成(这个文件程序员自己书写)
+            template: 'index.html' //根据template.html这个模板来生成(这个文件程序员自己书写)
         })
     ]
 }

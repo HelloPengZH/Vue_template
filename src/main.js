@@ -3,15 +3,8 @@ import Vue from 'vue';
 import App from './App.vue';
 //引入 注主模块
 
-//注入分模块
-
-
-// 4.0 注册mint-ui
-// 导入mint-ui的css文件
-import 'mint-ui/lib/style.min.css';
+//注入分模块\
 // 导入mint-ui组件对象
-import mintui from 'mint-ui';
-// 在Vue中全局使用mintui
 Vue.use(mintui);
 
 // 5.0 注册mui的css样式
