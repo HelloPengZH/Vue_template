@@ -1,14 +1,11 @@
-import Vue from 'vue';
-//引入vue
-import App from './App.vue';
-//引入 注主模块
+import Vue from 'vue'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-default/index.css'
+import App from './App.vue'
 
-//注入分模块\
-// 导入mint-ui组件对象
-Vue.use(mintui);
+Vue.use(ElementUI)
 
-// 5.0 注册mui的css样式
-import '../statics/mui/css/mui.css';
+
 
 // 6.0 导入一个当前系统的全局基本样式
 import '../statics/css/site.css';

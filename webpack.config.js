@@ -12,12 +12,8 @@ module.exports={
                 loader:'style-loader!css-loader'
             },
             {
-                test:/\.scss$/,
-                loader:'style-loader!css-loader!sass-loader'
-            },
-            {
                 test:/\.less$/,
-                loader:'style-loader!css-loader!sass-loader'
+                loader:'style-loader!css-loader!less-loader'
             },
             {
                 test: /\.(png|jpeg|gif|ttf|jpg)$/,
@@ -28,6 +24,18 @@ module.exports={
                 loader:'babel-loader',
                 exclude:/node_modules/ 
             },
+            {
+                test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
+                loader: 'file-loader'
+            },
+            {
+                test: /\.(png|jpe?g|gif|svg)(\?\S*)?$/,
+                loader: 'file-loader',
+                query: {
+                  name: '[name].[ext]?[hash]'
+                }
+            },
+        
             {
                 test: /.vue$/,  // 解析 .vue 组件页面文件
                 loader:'vue-loader' //
