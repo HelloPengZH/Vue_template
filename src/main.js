@@ -8,7 +8,7 @@ Vue.use(ElementUI)
 
 
 // 6.0 导入一个当前系统的全局基本样式
-import '../statics/css/site.css';
+import '../static/css/site.css';
 
 // 7.0 将vue-resource在vue中绑定，自动在vue实例对象上注入一个$http对象就可以使用ajax方法请求数据
 
