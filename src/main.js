@@ -15,24 +15,25 @@ import '../static/css/site.css';
 import vueRouter  from 'vue-router';
 Vue.use(vueRouter)
 
-import login  from './components/account/login.vue';
-import register  from './components/account/register.vue';
+// import login  from './components/account/login.vue';
+// import register  from './components/account/register.vue';
 
 
 
-var router = new vueRouter({
-    linkActiveClass:'miu-active',
-    routes:[
-        {
-            path:"/login",
-            component:login
-        },
-        {
-            path:"/register",
-            component:register
-        }
-    ]
-})
+// var router = new vueRouter({
+//     linkActiveClass:'miu-active',
+//     routes:[
+//         {
+//             path:"/login",
+//             component:login
+//         },
+//         {
+//             path:"/register",
+//             component:register
+//         }
+//     ]
+// })
+import router from './router/router.js'
 
 new Vue({
 	el:'#app',

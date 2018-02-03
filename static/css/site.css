@@ -10,4 +10,14 @@ body{
 	margin-top: 45px;
 	margin-bottom: 50px;
 }
-
+.clr::after {
+	content:  '.';
+	height: 0;
+	width: 0;
+	visibility: hidden;
+	display: block;
+	clear: both;
+}
+.clr {
+	zoom: 1
+}
