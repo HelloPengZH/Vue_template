@@ -6,7 +6,7 @@
         <router-link to="/editor">editor</router-link>
         <router-link to="/demo1">测试组件</router-link>
         <router-link to="/demo2">pickBig</router-link>
-        <router-link to="/demo3">组件测试</router-link>
+        <router-link to="/demo5">城市选择插件</router-link>
         <router-link to="/demo4">路由测试</router-link>
 
        
