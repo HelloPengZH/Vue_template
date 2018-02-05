@@ -118,7 +118,7 @@ export default {
   }
 };
 </script>
-<style lang="scss">
+<style lang="less">
 #common-select-city {
   display: inline-block;
   margin-right: 20px;

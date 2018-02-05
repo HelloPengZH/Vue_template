@@ -5,7 +5,7 @@
         size='small' 
         :show-close='false'
         :close-on-click-modal='false'>
-            <img src='../../../static/image/close.png' @click='closeDialog'>
+            <!-- <img src='../../../static/image/close.png' @click='closeDialog'> -->
             <slot></slot>
             <div slot="footer" class="dialog-footer">
               <el-button @click="closeDialog">取 消</el-button>

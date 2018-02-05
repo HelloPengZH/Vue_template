@@ -86,9 +86,9 @@
   </div>
 </template>
 <script>
-import selectCity from "../public/selectCity";
-import comDialog from "../public/dialog";
-import paging from "../public/paging";
+import selectCity from "../public/selectCity.vue";
+import comDialog from "../public/dialog.vue";
+import paging from "../public/paging.vue";
 
 export default {
   // 数据
