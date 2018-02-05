@@ -104,6 +104,20 @@ export default {
                 background-color: #ff3040;
                 float: left;
             }
+            .cell1,.cell2,.cell3,.cell4,.cell5,.cell6,.cell7,.cell8,.cell9,.cell10,.cell11,.cell12{
+                float: left;
+            }
+            .cell1{width: 100%*(1/12)}
+            .cell2{width: 100%*(2/12)}
+            .cell3{width: 100%*(3/12)}
+            .cell4{width: 100%*(4/12)}
+            .cell5{width: 100%*(5/12)}
+            .cell6{width: 100%*(6/12)}
+            .cell7{width: 100%*(7/12)}
+            .cell8{width: 100%*(8/12)}
+            .cell9{width: 100%*(9/12)}
+            .cell10{width: 100%*(10/12)}
+            .cell11{width: 100%*(11/12)}
             .button {
                 float: right;
                 width: 10%;

@@ -13,7 +13,7 @@
                           icon="caret-top"
                           type="text"
                           rows="2"
-                          class="el-input__inner"
+                          class="input  el-input__inner"
                    >
                </div>
            </div>
@@ -21,11 +21,18 @@
             <div v-if="citySelect" class="showingBox">
                 <el-tabs v-model="activeName" @tab-click="handleClick">
                     <el-tab-pane class="part" label="省份" name="first">
-                       
+                       <div style="display:none">
+                           <div class="left">
+
+                           </div>
+                           <div class="right">
+
+                           </div>
+                       </div>
                         <span   class="cell" 
                                 v-for="(value, key, index) in placeData[areaNumber]" 
                                 :key="index"
-                                @click="sendNumber(key)"
+                                @click="getNumber(key)"
 
                                 >
                                 {{value}}
@@ -73,10 +80,13 @@ import areaData from './areaData.js'
              handleClick() {
                 this.areaNumber=100000
              },
-             sendNumber(num){
+             getNumber(num){
                 // alert(num)
                 this.areaNumber=num
                 this.activeName="second"
+             },
+             sendNumber(num) {
+                alert(num)
              }
          },
          components:{
@@ -104,10 +114,7 @@ import areaData from './areaData.js'
             }
             .input {
                 display: inline-block;
-                width: 80%;
-                input{
-                    
-                }
+                width: 60%!important;
                 .appear {
                     transform:rotate(180deg)
                 }
@@ -116,8 +123,11 @@ import areaData from './areaData.js'
                 width: 100%;
                 // height: 100px;
                 // background-color: #ff3040;
-                border: 1px solid #000;
+                border: 1px solid #d1dbe5;
                 position: absolute;
+                border-radius: 2px;
+                box-sizing: border-box;
+                box-shadow:0 2px 4px rgba(0,0,0,.12), 0 0 6px rgba(0,0,0,.04);
                 top: 40px;
                 //简单通用样式
                 .part {
@@ -132,8 +142,8 @@ import areaData from './areaData.js'
                 }
                 .cell {
                     display: inline-block;
-                   margin: 3px;
-                   cursor: pointer
+                    margin: 3px;
+                    cursor: pointer
                 }
 
             }
