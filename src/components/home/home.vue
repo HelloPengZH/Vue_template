@@ -8,6 +8,7 @@
         <router-link to="/demo2">pickBig</router-link>
         <router-link to="/demo5">城市选择插件</router-link>
         <router-link to="/demo4">路由测试</router-link>
+        <router-link to="/demo3">异常弹出</router-link>
 
        
     </div>

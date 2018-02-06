@@ -15,16 +15,18 @@
                     <el-input type="textarea" class="cell10" resize="none" :rows='5' v-model="abnormalData.desc"></el-input>
                 </el-form-item>
                 <div class="row">
-                    <el-upload
-                        action="https://jsonplaceholder.typicode.com/posts/"
-                        list-type="picture-card"
-                        :on-preview="handlePictureCardPreview"
-                        :on-remove="handleRemove">
-                        <i class="el-icon-plus"></i>
-                    </el-upload>
-                    <el-dialog v-model="pic.dialogVisible" size="tiny">
-                        <img width="100%" :src="pic.url" alt="">
-                    </el-dialog>
+                    <el-form-item label="上传图片" class="row"  prop="desc">
+                        <el-upload
+                            action="https://jsonplaceholder.typicode.com/posts/"
+                            list-type="picture-card"
+                            :on-preview="handlePictureCardPreview"
+                            :on-remove="handleRemove">
+                            <i class="el-icon-plus"></i>
+                        </el-upload>
+                        <el-dialog v-model="pic.dialogVisible" size="tiny">
+                            <img width="100%" :src="pic.url" alt="">
+                        </el-dialog>
+                    </el-form-item>
                 </div>
             </el-form>
         </div>
@@ -72,7 +74,7 @@
         }
     }
 </script>
-<style lang="less" scoped>
+<style lang="scss" scoped>
     .abnormal {
         .input {
             .row {
