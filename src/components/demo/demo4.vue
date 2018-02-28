@@ -1,116 +1,129 @@
 <template>
-    <div id="router">
-        <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
-            <el-form-item label="活动名称" prop="name">
-                <el-input v-model="ruleForm.name"></el-input>
-            </el-form-item>
-            <el-form-item label="活动区域" prop="region">
-                <el-select v-model="ruleForm.region" placeholder="请选择活动区域">
-                <el-option label="区域一" value="shanghai"></el-option>
-                <el-option label="区域二" value="beijing"></el-option>
-                </el-select>
-            </el-form-item>
-            <el-form-item label="活动时间" required>
-                <el-col :span="11">
-                <el-form-item prop="date1">
-                    <el-date-picker type="date" placeholder="选择日期" v-model="ruleForm.date1" style="width: 100%;"></el-date-picker>
-                </el-form-item>
-                </el-col>
-                <el-col class="line" :span="2">-</el-col>
-                <el-col :span="11">
-                <el-form-item prop="date2">
-                    <el-time-picker type="fixed-time" placeholder="选择时间" v-model="ruleForm.date2" style="width: 100%;"></el-time-picker>
-                </el-form-item>
-                </el-col>
-            </el-form-item>
-            <el-form-item label="即时配送" prop="delivery">
-                <el-switch on-text="" off-text="" v-model="ruleForm.delivery"></el-switch>
-            </el-form-item>
-            <el-form-item label="活动性质" prop="type">
-                <el-checkbox-group v-model="ruleForm.type">
-                <el-checkbox label="美食/餐厅线上活动" name="type"></el-checkbox>
-                <el-checkbox label="地推活动" name="type"></el-checkbox>
-                <el-checkbox label="线下主题活动" name="type"></el-checkbox>
-                <el-checkbox label="单纯品牌曝光" name="type"></el-checkbox>
-                </el-checkbox-group>
-            </el-form-item>
-            <el-form-item label="特殊资源" prop="resource">
-                <el-radio-group v-model="ruleForm.resource">
-                <el-radio label="线上品牌商赞助"></el-radio>
-                <el-radio label="线下场地免费"></el-radio>
-                </el-radio-group>
-            </el-form-item>
-            <el-form-item label="活动形式" prop="desc">
-                <el-input type="textarea" v-model="ruleForm.desc"></el-input>
-            </el-form-item>
-            <el-form-item>
-                <el-button type="primary" @click="submitForm('ruleForm')">立即创建</el-button>
-                <el-button @click="resetForm('ruleForm')">重置</el-button>
-            </el-form-item>
-        </el-form>
+    <div class="onRoadData">
+        <el-steps :space="100" direction="vertical" :active="1">
+          <el-step v-for="(item,index) in onRoadData" :key="index">
+            <div slot="title">
+              <span v-text="item.title"></span>
+              <span v-text="item.time" style="font-size:10px"></span>
+            </div>
+            <div slot="description" class="clr row">
+                <div class="cell8" style="width:200px"> 
+                  <div v-if="item.event">
+                     <span v-text="item.event"></span>
+                     <el-popover 
+                            trigger="click" placement="right">
+                            <p>
+                              {{item.des}}                               
+                            </p>
+                            <span slot="reference" class="name-wrapper">
+
+                                <el-button size='mini'>详情</el-button>
+                                
+                            </span>
+                     </el-popover>
+                  </div>
+                  <div class="img">
+                    <img v-for="(url,index) in item.url" :key="index" :src="url" alt="事件图片" style="  width: 50px;height: 50px;">  
+                  </div>
+                </div>
+                <div class="cell4" style="width:130px">
+                  <p>
+                    <span>更新来源 : </span>
+                    <span v-text="item.source"></span>
+                  </p>
+                  <p>
+                    <span> 收货人 </span>
+                    <span v-text="item.receivePeo"></span>
+                  </p>
+                  <p>
+                    <span> Tel </span>
+                    <span v-text="item.tel"></span>
+                  </p>
+                  <p>
+                    <span> 地点 </span>
+                    <span v-text="item.site"></span>
+                  </p>
+                </div>
+            </div>
+          </el-step>
+          
+        </el-steps>
     </div>
 </template>
 <script>
-  export default {
-    data() {
-      return {
-        ruleForm: {
-          name: '',
-          region: '',
-          date1: '',
-          date2: '',
-          delivery: false,
-          type: [],
-          resource: '',
-          desc: ''
+    export default {
+        data () {
+            return {
+              active:1,
+              onRoadData:[
+                  {title:'测试',time:'2018-2-31',status:'已提货',event:'交通拥堵',des:"出现原因那个及详情",url:[1,2,3],source:"司机段",site:'测试',receivePeo:'收货人',tel:123123123231}
+                  ,{title:'测试',time:'2018-2-31',status:'已提货',event:'交通拥堵',des:"出现原因那个及详情",url:[1,2,3],source:"司机段",site:'测试',receivePeo:'收货人',tel:123123123231}
+                  ,{title:'测试',time:'2018-2-31',status:'已提货',event:'交通拥堵',des:"出现原因那个及详情",url:[1,2,3],source:"司机段",site:'测试',receivePeo:'收货人',tel:123123123231}
+                  ,{title:'测试',time:'2018-2-31',status:'已提货',event:'交通拥堵',des:"出现原因那个及详情",url:[1,2,3],source:"司机段",site:'测试',receivePeo:'收货人',tel:123123123231}
+                  ,{title:'测试',time:'2018-2-31',status:'已提货',event:'交通拥堵',des:"出现原因那个及详情",url:[1,2,3],source:"司机段",site:'测试',receivePeo:'收货人',tel:123123123231}
+                  ,{title:'测试',time:'2018-2-31',status:'已提货',event:'交通拥堵',des:"出现原因那个及详情",url:[1,2,3],source:"司机段",site:'测试',receivePeo:'收货人',tel:123123123231}
+                  ,{title:'测试',time:'2018-2-31',status:'已提货',event:'交通拥堵',des:"出现原因那个及详情",url:[1,2,3],source:"司机段",site:'测试',receivePeo:'收货人',tel:123123123231}
+                  ,{title:'测试',time:'2018-2-31',status:'已提货',event:'交通拥堵',des:"出现原因那个及详情",url:[1,2,3],source:"司机段",site:'测试',receivePeo:'收货人',tel:123123123231}
+                  ,{title:'测试',time:'2018-2-31',status:'已提货',event:'交通拥堵',des:"出现原因那个及详情",url:[1,2,3],source:"司机段",site:'测试',receivePeo:'收货人',tel:123123123231}
+                  ,{title:'测试',time:'2018-2-31',status:'已提货',event:'交通拥堵',des:"出现原因那个及详情",url:[1,2,3],source:"司机段",site:'测试',receivePeo:'收货人'}
+              ]
+            }
         },
-        rules: {
-          name: [
-            { required: true, message: '请输入活动名称', trigger: 'blur' },
-            { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
-          ],
-          region: [
-            { required: true, message: '请选择活动区域', trigger: 'change' }
-          ],
-          date1: [
-            { type: 'date', required: true, message: '请选择日期', trigger: 'change' }
-          ],
-          date2: [
-            { type: 'date', required: true, message: '请选择时间', trigger: 'change' }
-          ],
-          type: [
-            { type: 'array', required: true, message: '请至少选择一个活动性质', trigger: 'change' }
-          ],
-          resource: [
-            { required: true, message: '请选择活动资源', trigger: 'change' }
-          ],
-          desc: [
-            { required: true, message: '请填写活动形式', trigger: 'blur' }
-          ]
-        }
-      };
-    },
-    methods: {
-      submitForm(formName) {
-        this.$refs[formName].validate((valid) => {
-          if (valid) {
-            alert('submit!');
-          } else {
-            console.log('error submit!!');
-            return false;
-          }
-        });
-      },
-      resetForm(formName) {
-        this.$refs[formName].resetFields();
-      }
+        methods: {
+
+        },
+        
     }
-  }
 </script>
 <style lang="less" scoped>
-    #router {
-        width: 800px;
-        padding-top: 79px;
-        border: 1px solid #ffffff;
+    .onRoadData {
+        .clr  {
+          background-color: #eee;
+        }
+        #left,#right {
+          float: left !important;
+        }
+        
+        .row {
+            width: 100%;
+            .cell1,.cell2,.cell3,.cell4,.cell5,.cell6,.cell7,.cell8,.cell9,.cell10,.cell11,.cell12{
+            float: left !important; 
+            }
+            .cell1{width: 100%*(1/12)}
+            .cell2{width: 100%*(2/12)}
+            .cell3{width: 100%*(3/12)}
+            .cell4{width: 100%*(4/12)}
+            .cell5{width: 100%*(5/12)}
+            .cell6{width: 100%*(6/12)}
+            .cell7{width: 100%*(7/12)}
+            .cell8{width: 100%*(8/12)}
+            .cell9{width: 100%*(9/12)}
+            .cell10{width: 100%*(10/12)}
+            .cell11{width: 100%*(11/12)}
+
+            .button {
+                float: right;
+                width: 10%;
+                // background-color: #0094ff;
+            }
+        }
+        .row::after {
+            content:  '.';
+            height: 0;
+            width: 0;
+            visibility: hidden;
+            display: block;
+            clear: both;
+        }
+        .row {
+            zoom: 1;
+        }
+        .cell4 {
+            p{
+              padding: 0%;
+              margin: 0;
+              padding: 2px
+            }
+        }
     }
 </style>

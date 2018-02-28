@@ -8,6 +8,7 @@ import demo2  from './../components/demo/demo2.vue';
 import demo3  from './../components/demo/demo3.vue';
 import demo4  from './../components/demo/demo4.vue';
 import demo5  from './../components/demo/demo5.vue';
+import demo6  from './../components/demo/demo6.vue';
 
 const router = new vueRouter({
     linkActiveClass:'miu-active',
@@ -43,6 +44,10 @@ const router = new vueRouter({
         {
             path:"/demo5",
             component:demo5
+        },
+        {
+            path:"/demo6",
+            component:demo6
         }
     ]
 })
