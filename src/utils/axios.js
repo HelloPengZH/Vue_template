@@ -1,5 +1,5 @@
 import axios from "axios";
-import router from '@/router'
+import router from '@/route'
 import store from '@/store'
 
 //对axios的配置
