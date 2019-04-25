@@ -10,6 +10,8 @@ Vue.use(ElementUI)
 // 注入公共JS
 import Axios from './utils/axios'
 Vue.prototype.$http = Axios 
+// 注入公共样式
+import '@/styles/index.less'
 
 new Vue({
   render: h => h(App),
